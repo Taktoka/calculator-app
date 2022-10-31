@@ -1,0 +1,323 @@
+:root {
+  --main-bg: hsl(222, 26%, 31%);
+  --keypad-toggle-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --key-bg: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+  --toggle-key-bg: hsl(6, 63%, 50%);
+  --red-key-shadow: hsl(6, 70%, 34%);
+  --alt-key-bg: hsl(30, 25%, 89%);
+  --alt-key-shadow: hsl(28, 16%, 65%);
+  --dark-text: hsl(221, 14%, 31%);
+  --white-text: hsl(0, 0%, 100%);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "League Spartan", sans-serif;
+}
+.main {
+  background-color: var(--main-bg);
+  width: 900px;
+  padding: 100px;
+  margin: 50px auto;
+  transition: 0.5s;
+}
+
+.calc-app {
+  background-color: transparent;
+  width: 400px;
+  padding: 20px;
+  margin: auto;
+}
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: var(--white-text);
+}
+
+.head.theme-three {
+  color: hsl(52, 100%, 62%);
+}
+.head .logo {
+  font-size: 21px;
+  padding-left: 7px;
+  color: var(--white-text);
+}
+.themes {
+  display: flex;
+  align-items: end;
+}
+.themes p {
+  font-size: 8px;
+  margin-right: 20px;
+  letter-spacing: 1px;
+}
+.theme-num {
+  text-align: center;
+}
+.theme-num span {
+  font-size: 8px;
+  padding: 3px;
+  cursor: pointer;
+}
+.theme-tog {
+  position: relative;
+  top: 3px;
+  left: 0;
+  width: 47px;
+  height: 17px;
+  border-radius: 15px;
+  background-color: var(--keypad-toggle-bg);
+}
+
+.theme-tog .toggle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--toggle-key-bg);
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.theme-tog .toggle:hover {
+  background-color: hsl(6deg 100% 62%);
+}
+
+.screen {
+  position: relative;
+  margin-top: 25px;
+  width: 100%;
+  height: 70px;
+  background-color: var(--screen-bg);
+  border-radius: 8px;
+  padding: 30px;
+  color: var(--white-text);
+  overflow: hidden;
+}
+
+.screen .output {
+  font-size: 34px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+  padding: 20px;
+  background-color: var(--keypad-toggle-bg);
+  border-radius: 10px;
+}
+
+.keypad .btn {
+  border: none;
+  padding: 11px 6px;
+  font-family: inherit;
+  font-size: 25px;
+  border: none;
+  border-radius: 4px;
+  color: var(--key-shadow);
+  background-color: var(--alt-key-bg);
+  cursor: pointer;
+  box-shadow: 0 4px 0 -1px var(--alt-key-shadow);
+}
+.keypad .btn:focus {
+  outline: none;
+}
+.keypad .btn:hover {
+  background-color: hsl(30deg 100% 97%);
+}
+
+.keypad .reset,
+.keypad .equal {
+  grid-column: span 2;
+}
+.keypad .reset,
+.keypad .delete {
+  background-color: var(--key-bg);
+  box-shadow: 0 4px 0 -1px var(--key-shadow);
+  color: var(--white-text);
+  font-size: 17px;
+}
+.keypad .reset:hover,
+.keypad .delete:hover {
+  background-color: hsl(225deg 74% 80%);
+}
+
+.keypad .equal {
+  background-color: var(--toggle-key-bg);
+  box-shadow: 0 4px 0 -1px var(--red-key-shadow);
+  color: var(--white-text);
+  font-size: 17px;
+}
+.keypad .equal:hover {
+  background-color: hsl(6deg 100% 62%);
+}
+
+/* Theme-two */
+.main.theme-2 {
+  background-color: hsl(0, 0%, 90%);
+}
+.main.theme-2 .head {
+  color: hsl(60, 10%, 19%);
+}
+.main.theme-2 .theme-tog {
+  background-color: hsl(0, 5%, 81%);
+}
+.main.theme-2 .theme-tog .toggle {
+  background-color: hsl(25, 98%, 40%);
+}
+.main.theme-2 .theme-tog .toggle:hover {
+  background-color: hsl(25deg 100% 52%);
+}
+.main.theme-2 .screen {
+  background-color: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+.main.theme-2 .keypad {
+  background-color: hsl(0, 5%, 81%);
+}
+
+.main.theme-2 .keypad .btn {
+  background-color: hsl(45, 7%, 89%);
+  box-shadow: 0 4px 0 -1px hsl(35, 11%, 61%);
+  color: hsl(60, 10%, 19%);
+}
+.main.theme-2 .keypad .btn:hover {
+  background-color: var(--white-text);
+}
+.main.theme-2 .keypad .reset,
+.main.theme-2 .keypad .delete {
+  background-color: hsl(185, 42%, 37%);
+  box-shadow: 0 4px 0 -1px hsl(185, 58%, 25%);
+  color: var(--white-text);
+}
+.main.theme-2 .keypad .reset:hover,
+.main.theme-2 .keypad .delete:hover {
+  background-color: hsl(185deg 56% 58%);
+}
+.main.theme-2 .keypad .equal {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: 0 4px 0 -1px hsl(25, 99%, 27%);
+  color: var(--white-text);
+}
+.main.theme-2 .keypad .equal:hover {
+  background-color: hsl(25deg 100% 51%);
+}
+
+/* Theme-three */
+.main.theme-3 {
+  background-color: hsl(268, 75%, 9%);
+}
+.main.theme-3 .head {
+  color: hsl(52, 100%, 62%);
+}
+.main.theme-3 .theme-tog {
+  background-color: hsl(268, 71%, 12%);
+}
+.main.theme-3 .theme-tog .toggle {
+  background-color: hsl(176, 100%, 44%);
+}
+.main.theme-3 .theme-tog .toggle:hover {
+  background-color: hsl(177, 92%, 70%);
+}
+.main.theme-3 .screen {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+.main.theme-3 .keypad {
+  background-color: hsl(268, 71%, 12%);
+}
+
+.main.theme-3 .keypad .btn {
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0 4px 0 -1px hsl(290, 70%, 36%);
+  color: hsl(52, 100%, 62%);
+}
+.main.theme-3 .keypad .btn:hover {
+  background-color: hsl(268deg 48% 42%);
+}
+.main.theme-3 .keypad .reset,
+.main.theme-3 .keypad .delete {
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0 4px 0 -1px hsl(290, 70%, 36%);
+  color: var(--white-text);
+}
+.main.theme-3 .keypad .reset:hover,
+.main.theme-3 .keypad .delete:hover {
+  background-color: hsl(290deg 70% 36%);
+}
+.main.theme-3 .keypad .equal {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0 4px 0 -1px hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+.main.theme-3 .keypad .equal:hover {
+  background-color: hsl(177, 92%, 70%);
+}
+@media (max-width: 576px) {
+  .main {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .calc-app {
+    width: 370px;
+  }
+  .head {
+    margin-top: 11px;
+  }
+  .head .logo {
+    font-size: 35px;
+  }
+  .themes p {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .theme-tog {
+    width: 66px;
+    height: 25px;
+  }
+  .theme-tog .toggle {
+    width: 17px;
+    height: 17px;
+    left: 5px;
+  }
+  .theme-num span {
+    font-size: 12px;
+  }
+  .screen {
+    height: 100px;
+    margin-top: 30px;
+  }
+  .screen .output {
+    font-size: 38px;
+  }
+  .keypad {
+    margin-top: 25px;
+    padding: 25px;
+  }
+  .keypad .btn {
+    font-size: 34px;
+    padding-top: 20px;
+  }
+  .keypad .delete,
+  .keypad .reset,
+  .keypad .equal {
+    font-size: 18px;
+    padding: 20px;
+    letter-spacing: 1px;
+  }
+}
